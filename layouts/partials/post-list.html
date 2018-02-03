@@ -4,7 +4,7 @@
             <a href='{{ .URL }}'><aside class="dates">{{ .Date.Format "Jan 2 2006" }}</aside></a>
             <a href='{{ .URL }}' class="title">{{ .LinkTitle }}</a>
 						{{ with .Params.categories }}{{ if ge (len .) 1 }}{{ range first 1 . }}
-	            <a href="{{ printf "categories/%s" (. | urlize) | absURL }}"><aside><h2 class="categories">{{ (. | humanize) }}</h2></aside></a>
+	            <a href="{{ printf "categories/%s" (. | urlize) | absURL }}"><aside><h2 class="categories">{{ (. | lower | humanize) }}</h2></aside></a>
 	          {{ end }}{{ end }}{{ end }}
             <a href='{{ .URL }}'><h2>{{ .Description | markdownify }}</h2></a>
         </li>
